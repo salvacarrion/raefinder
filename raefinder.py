@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import re, sys, os
+from unidecode import unidecode
 
 FILE = os.path.join(os.path.dirname(__file__), 'rae.txt')
 vowels = '[a,e,i,o,u]*'
@@ -28,7 +29,8 @@ try:
             regex += '[' + ''.join(mnemotecnic[int(c)]) + ']' + vowels
 
         for line in open(FILE, 'r', encoding='utf8'):
-            if re.search('^' + regex + '$', line):
+            unaccented_line = unidecode(line)
+            if re.search('^' + regex + '$', unaccented_line):
                 total_found += 1
                 print(line.strip())
 

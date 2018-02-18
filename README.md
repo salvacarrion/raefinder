@@ -8,6 +8,7 @@ Therefore, I have written a simple script that given a number, it retrieves all 
 ## Dependencies
 
 - Python3
+- Unidecode
 
 ## How to use it
 
