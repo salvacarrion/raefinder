@@ -31,8 +31,8 @@ Available options:
 
 ```
 (number)	To retrive matching words from DRAE
--h			To list all available options
--m			To see mnemotecnics used
+-h		To list all available options
+-m		To see mnemotecnics used
 ```
 
 ## More about this mnemotecnic
