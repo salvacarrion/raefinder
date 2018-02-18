@@ -5,7 +5,7 @@ import re, sys, os
 from unidecode import unidecode
 
 FILE = os.path.join(os.path.dirname(__file__), 'rae.txt')
-vowels = '[a,e,i,o,u]*'
+vowels = '[aeiou]*'
 mnemotecnic = {1: ['d', 't'],
                2: ['n', 'ñ'],
                3: ['m', 'w'],
