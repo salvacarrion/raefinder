@@ -10,12 +10,12 @@ mnemotecnic = {1: ['d', 't'],
                2: ['n', 'ñ'],
                3: ['m', 'w'],
                4: ['c', 'h', 'k', 'q'],
-               5: ['l', 'v'],  # Includes 'll'
+               5: ['l', 'v', 'll'],  # Includes 'll'
                6: ['s', 'z'],
                7: ['f', 'j'],
-               8: ['g', 'x'],
+               8: ['g', 'x', 'ch'],
                9: ['b', 'p'],
-               0: ['r']}  # Includes 'rr'
+               0: ['r', 'rr']}  # Includes 'rr'
 # Excluded: y
 
 arg1 = str(sys.argv[1])
@@ -23,13 +23,26 @@ total_found = 0
 try:
 
     if arg1.isdigit():
+
+        # Build regex
         number = arg1
         regex = vowels
         for c in number:
-            regex += '[' + ''.join(mnemotecnic[int(c)]) + ']' + vowels
+            list_c = ''
+            list_d = []
+            for val in mnemotecnic[int(c)]:
+                if len(val) == 1: list_c += val
+                else: list_d.append(val)
 
+            prep_d = ''
+            if list_d:
+                prep_d = '|' + '|'.join(list_d)
+
+            regex += '([' + list_c + ']' + prep_d + ')' + vowels
+
+        # Find words
         for line in open(FILE, 'r', encoding='utf8'):
-            unaccented_line = unidecode(line)
+            unaccented_line = unidecode(line)  # Strip accents
             if re.search('^' + regex + '$', unaccented_line):
                 total_found += 1
                 print(line.strip())
