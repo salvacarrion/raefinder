@@ -1,5 +1,5 @@
 # Raefinder
-The **Mnemonic major system** associates one or more consonants to a numeral in other to ease the memorization.
+The **Mnemonic major system** associates one or more consonants to a numeral in order to ease the memorization.
 
 Therefore, I have written a simple script that given a number, it retrieves all words (from a dictionary) that match this mnemotecnic criteria.
 
@@ -12,7 +12,7 @@ Therefore, I have written a simple script that given a number, it retrieves all 
 
 ## How to use it
 
-Just type on the terminal and get the results:
+Just type this on the terminal and get the results:
 
 ```
 $ python3 raefinder.py 123
@@ -32,12 +32,12 @@ Available options:
 
 ```
 (number)	To retrive matching words from DRAE
--h			To list all available options
--m			To see mnemotecnics used
+-h		To list all available options
+-m		To see mnemotecnics used
 ```
 
 ## More about this mnemotecnic
-These associations are not arbitrary, in fact, they follow a very simple pattern of remembering (e.g: *V* is the Roman numeral for *5*, *b* is a *9* turned 180º,...). Anyway, just as an example:
+These associations are not arbitrary, in fact, they follow a very simple pattern of remembering (e.g: *V* is the Roman numeral for *5*, *p* is a *9* flipped 180º,...). Anyway, just as an example:
 
 ```
 Number to remember = 3.1415927
