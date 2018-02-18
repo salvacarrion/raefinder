@@ -25,9 +25,9 @@ try:
     if arg1.isdigit():
 
         # Build regex
-        number = arg1
         regex = vowels
-        for c in number:
+        for c in arg1:
+            # Prep regex for chars and strings
             list_c = ''
             list_d = []
             for val in mnemotecnic[int(c)]:
@@ -35,8 +35,7 @@ try:
                 else: list_d.append(val)
 
             prep_d = ''
-            if list_d:
-                prep_d = '|' + '|'.join(list_d)
+            if list_d: prep_d = '|' + '|'.join(list_d)
 
             regex += '([' + list_c + ']' + prep_d + ')' + vowels
 
@@ -49,7 +48,8 @@ try:
 
         if total_found:
             print('\n-------------------------------')
-            print('Total results: ' + str(total_found))
+            print('- Total results: ' + str(total_found))
+            print('- Regex used: "' + regex + '"')
         else:
             print('No words matched the expression')
     else:
