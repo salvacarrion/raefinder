@@ -31,7 +31,7 @@ Total results: 5
 Available options:
 
 ```
-(number)	To retrive matching words from DRAE
+(number) (dictionary: optional) To retrive matching words from DRAE
 -h		To list all available options
 -m		To see mnemotecnics used
 ```
