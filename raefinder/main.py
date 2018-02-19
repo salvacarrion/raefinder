@@ -4,7 +4,8 @@
 import re, sys, os, time
 from unidecode import unidecode
 
-DEFAULT_DICT = '../dictionaries/rae.txt'
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+DEFAULT_DICT = BASE_DIR+ '/dictionaries/rae.txt'
 VOWELS = '[aeiou]*'
 MNEMOTECNIC = {1: ['d', 't'],
                2: ['n', 'ñ', 'y'],

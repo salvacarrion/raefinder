@@ -10,28 +10,40 @@ Therefore, I have written a simple script that given a number, it retrieves all 
 - Python3
 - Unidecode
 
-## How to use it
+## Installation
 
-Just type this on the terminal and get the results:
+Open the terminal, go to the folder of this package and type:
+```
+python3 setup.py install --user
+```
+
+Then, to use it you can simply write:
 
 ```
-$ python3 raefinder.py 123
-
-==>
-adenoma
-adinamia
-dinamia
-dinamo
-tonema
+$ raefinder 1261
+-----------------------------
+--        RAEFINDER        --
+-----------------------------
+atenazado
+ateneísta
+danzado
+denuesto
+dinasta
+dinastía
+tenazada
+tenista
 
 -------------------------------
-Total results: 5
+- Words matched: 8
+- Words analyzed: 80,383
+- Elapsed time: 0.24041s
+- Regex used: "^[aeiou]*([dt])[aeiou]*([nñy])[aeiou]*([sz])[aeiou]*([dt])[aeiou]*$"
 ```
 
 Available options:
 
 ```
-(number) (dictionary: optional) To retrive matching words from DRAE
+(number) (dictionary: optional) Shows all matched words in the dictionary
 -h		To list all available options
 -m		To see mnemotecnics used
 ```

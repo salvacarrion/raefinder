@@ -10,6 +10,10 @@ setup(name='raefinder',
       author='Salva Carrión',
       license='MIT',
       packages=find_packages(),
+      package_data={
+          'dictionaries': ['*.txt'],
+      },
+      include_package_data=True,
       install_requires=requirements,
       zip_safe=False,
       entry_points={
