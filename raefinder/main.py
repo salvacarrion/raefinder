@@ -27,8 +27,12 @@ def safe_number(number):
         return number
 
 
-def build_regex(number):
+def build_regex(number, mnemo=False):
     number = safe_number(number)
+
+    # Set default mnemo
+    if not mnemo:
+        mnemo = MNEMOTECNIC
 
     # Build regex
     regex = VOWELS
@@ -36,7 +40,7 @@ def build_regex(number):
         # Prep regex for chars and strings
         list_c = ''
         list_d = []
-        for val in MNEMOTECNIC[int(c)]:
+        for val in mnemo[int(c)]:
             if len(val) == 1:
                 list_c += val
             else:
@@ -49,14 +53,13 @@ def build_regex(number):
     return '^' + regex + '$'
 
 
-def get_words(number, file=None, print_w=False):
+def get_words(number, mnemo=False, file=None, print_w=False):
     if not file:
         file = os.path.join(os.path.dirname(__file__), DEFAULT_DICT)
 
     try:
-
         # Create specific regex
-        regex = build_regex(number)
+        regex = build_regex(number, mnemo)
 
         # Find words
         total_lines = 0
@@ -83,7 +86,7 @@ def print_words(number, file=None):
 
     # Find words
     start_t = time.time()
-    words_matched, total_lines, regex = get_words(number, file, print_w=True)
+    words_matched, total_lines, regex = get_words(number, file=file, print_w=True)
     end_t = time.time() - start_t
 
     # Print results
