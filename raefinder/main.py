@@ -3,20 +3,11 @@
 
 import re, sys, os, time
 from unidecode import unidecode
+from .mnemo import MNEMOTECNIC_2 as MNEMOTECNIC
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 DEFAULT_DICT = BASE_DIR+ '/dictionaries/rae.txt'
 VOWELS = '[aeiou]*'
-MNEMOTECNIC = {1: ['d', 't'],
-               2: ['n', 'ñ', 'y'],
-               3: ['m', 'w'],
-               4: ['c', 'h', 'k', 'q'],
-               5: ['l', 'v', 'll'],
-               6: ['s', 'z'],
-               7: ['f', 'j'],
-               8: ['g', 'x', 'ch'],
-               9: ['b', 'p'],
-               0: ['r', 'rr']}
 
 
 def safe_number(number):
@@ -38,18 +29,18 @@ def build_regex(number, mnemo=False):
     regex = VOWELS
     for c in number:
         # Prep regex for chars and strings
-        list_c = ''
+        list_c = []
         list_d = []
         for val in mnemo[int(c)]:
             if len(val) == 1:
-                list_c += val
+                list_c.append(val)
             else:
                 list_d.append(val)
 
-        prep_d = ''
-        if list_d: prep_d = '|' + '|'.join(list_d)
-
-        regex += '([' + list_c + ']' + prep_d + ')' + VOWELS
+        # Build regex
+        prep_c = '[' + ''.join(list_c) + ']' if list_c else ''
+        prep_d = '|' + '|'.join(list_d) if list_d else ''
+        regex += '(' + prep_c + prep_d + ')' + VOWELS
     return '^' + regex + '$'
 
 

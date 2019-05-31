@@ -1,5 +1,5 @@
 from raefinder import *
 
 if __name__ == '__main__':
-    aas=get_words(123)
+    aas=print_words(0)
     asd=2
